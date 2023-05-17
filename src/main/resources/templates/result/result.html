@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="result_sylte.css">
+</head>
+
+<body>
+    <!-- https://getbootstrap.com/docs/5.3/examples/grid/ -->
+    <!-- header -->
+    <div>
+        <header class="d-flex flex-wrap justify-content-center px-5 py-3 mb-4 border-bottom">
+            <a href="../homepage/index.html"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <span class="fs-4">SHKJM</span>
+            </a>
+        </header>
+    </div>
+    <div class="container" id="wrap">
+        <!-- list of option list -->
+        <div class="row">
+            <div class="col-4">
+                <input disabled="true" type="text" class="form-control" id="HouseType" placeholder="HouseType">
+            </div>
+            <div class="col-4">
+                <input disabled="true" type="text" class="form-control" id="Region" placeholder="Region">
+            </div>
+            <div class="col-4">
+                <input disabled="true" type="text" class="form-control" id="AreaSize" placeholder="AreaSize">
+            </div>
+        </div>
+        <!-- result sentence -->
+        <div class="text-center">
+            <p class="fs-2">result sentence </p>
+        </div>
+        <!-- input range and search button -->
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <!-- https://getbootstrap.com/docs/5.3/forms/range/#disabled -->
+                <span id="minmax">
+                    <span>Min</span>
+                    <span>Average</span>
+                    <span>Max</span>
+                </span>
+                <div class="sliderContainer">
+                    <input type="range" class="form-range" id="customRange1" name="foo">
+                    <output class="bubble"></output>
+                </div>
+                 <span id="priceRange">
+                    <span id="smallestPrice"></span>
+                    <span id="averagePrice"></span>
+                    <span id="biggestPrice"></span>
+                </span>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <!-- result reference houses list -->
+        <div class="album py-5">
+            <div class="container">
+                <p class="fs-4">Recommended items...</p>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <!-- from here -->
+                    <div class="col" style="cursor: pointer;" onclick=cardOnClick()>
+                        <!-- can edit the function with the item id so that it will get the id to connect to the details. -->
+                        <div class="card shadow-sm">
+                            <img src="house1.jfif" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+                            <div class="card-body">
+                                <p class="card-text">house name here plz</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <small>Region here</small>
+                                    </div>
+                                    <small class="text-body-secondary">price here</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- to here is one card -->
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="house1.jfif" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+                            <div class="card-body">
+                                <p class="card-text">house name here plz</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <small>Region here</small>
+                                    </div>
+                                    <small class="text-body-secondary">price here</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="house1.jfif" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+                            <div class="card-body">
+                                <p class="card-text">house name here plz</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <small>Region here</small>
+                                    </div>
+                                    <small class="text-body-secondary">price here</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer mt-auto px-5 py-3 bg-body-tertiary">
+        <div>
+            <span class="text-body-secondary">SHKJM</span>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script>
+        function cardOnClick() {
+            // will get the href with the id of itemm
+            window.location.href = "adminList.html";
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const houseType = params.get('houseType');
+            const region = params.get('region');
+            const areaSize = params.get('areaSize');
+            const homePrice = params.get('homePrice');
+
+            // Update the input fields with the retrieved values
+            document.getElementById('HouseType').placeholder = houseType;
+            document.getElementById('Region').placeholder = region;
+            document.getElementById('AreaSize').placeholder = areaSize;
+        });
+    </script>
+    <script src="result_script.js"></script>
+</body>
+
+</html>

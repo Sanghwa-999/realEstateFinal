@@ -1,0 +1,25 @@
+.select_district{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    border-radius: 10px;
+}
+
+#districtSelect{
+    width: 340px;
+    position: relative;
+    padding: 10px 10px 10px 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: rgb(203, 203, 203);
+}
+
+#titles{
+    font-size: 20px;
+    font-weight:bold;
+}

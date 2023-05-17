@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <script src="https://kit.fontawesome.com/237f04cbde.js" crossorigin="anonymous"></script>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="form-box">
+        <h1>Login</h1>
+        <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Account ID" id="Username">
+        </div>
+        <div class="input-box">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" placeholder="Password" id="Password">
+            <span class="eye" onclick ="showPass()">
+                <i id="hide1" class="fa-solid fa-eye"></i>
+                <i id="hide2" class="fa-solid fa-eye-slash"></i>
+            </span>
+        </div>
+        <input type="submit" class="login" value="LOGIN" onclick="validate()">
+    </div>
+
+    <script>
+        function showPass(){
+            var x = document.getElementById("Password");
+            var y = document.getElementById("hide1");
+            var z = document.getElementById("hide2");
+
+            if(x.type === 'password'){
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none";
+            }
+            else{
+                x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block";
+            }
+        }
+
+        function validate(){
+
+        var username = document.getElementById("Username").value;
+        var password = document.getElementById("Password").value;
+
+        if(username == "admin" && password == "123456")
+        {
+            alert("Login succesfully");
+            return false;
+        }
+        else{
+            alert("Login Failed");
+        }
+        }
+    </script>
+
+
+</body>
+</html>

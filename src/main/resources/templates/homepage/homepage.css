@@ -1,0 +1,254 @@
+html {
+    height: 100%
+}
+
+#wrap {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+footer {
+    position: relative;
+    transform: translatY(-100%);
+}
+
+body{
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url(image/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    background: white;
+    width: 800px;
+    border-radius: 10px;
+    display: flex;
+}
+form input{
+    flex: 1;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: grey;
+}
+form button{
+    background: tomato;
+    padding: 13px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+form .fa-money-bill{
+    align-self: center;
+    padding: 10px 15px;
+    color: grey;
+}
+.selector{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#selectField{
+    width: 400px;
+    height: 35px;
+    padding: 20px 20px;
+    margin: 30px 40px;
+    box-sizing: border-box;
+    background: rgba(189, 189, 189, 0.6);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+#selectField img{
+    width: 10px;
+    transition: transform 0.5s;
+}
+#selectField1{
+    width: 400px;
+    height: 35px;
+    padding: 20px 20px;
+    margin: 30px 40px;
+    box-sizing: border-box;
+    background: rgba(189, 189, 189, 0.6);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+#selectField1 img{
+    width: 10px;
+    transition: transform 0.5s;
+}
+#selectField2{
+    width: 400px;
+    height: 35px;
+    padding: 20px 20px;
+    margin: 30px 40px;
+    box-sizing: border-box;
+    background: rgba(189, 189, 189, 0.6);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+#selectField2 img{
+    width: 10px;
+    transition: transform 0.5s;
+}
+/* .option_list{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+} */
+#list{
+    margin: -25px 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(189, 189, 189, 0.6);
+}
+#list1{
+    margin: -25px 40px;
+    border-radius: 10px;
+    height: 300px;
+    overflow-y: scroll;
+    background: rgba(189, 189, 189, 0.6);
+}
+#list2{
+    margin: -25px 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(189, 189, 189, 0.6);
+}
+.options {
+    width: 360px;
+    position: relative;
+    padding: 10px 0 0 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+}
+.options img{
+    width: 25px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.options1 {
+    width: 340px;
+    position: relative;
+    padding: 10px 0 0 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+}
+.options1 img{
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.options2 {
+    width: 360px;
+    position: relative;
+    padding: 10px 0 0 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+}
+.options2 img{
+    width: 25px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+.hide{
+    visibility: hidden;
+} 
+
+
+.option_list{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    border-radius: 10px;
+}
+
+#houseType{
+    width: 340px;
+    position: relative;
+    padding: 10px 10px 10px 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: rgb(203, 203, 203);
+    margin: 20px;
+}
+
+#region{
+    width: 340px;
+    position: relative;
+    padding: 10px 10px 10px 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: rgb(203, 203, 203);
+    margin: 20px;
+}
+
+#areaSize{
+    width: 340px;
+    position: relative;
+    padding: 10px 10px 10px 30px;
+    cursor: pointer;
+    list-style:none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: rgb(203, 203, 203);
+    margin: 20px;
+}
