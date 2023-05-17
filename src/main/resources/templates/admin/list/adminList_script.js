@@ -61,7 +61,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
 
 
 function redirectToIndex() {
-  window.location.href = '../admin/admin_login.html';//huy will make the admin login page
+  window.location.href = '../login/loginpage.html';//huy will make the admin login page
 }
 
 
