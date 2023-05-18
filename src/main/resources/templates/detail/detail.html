@@ -7,24 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script>
-            // const id = window.location.pathname.split("?").pop();
+        // const id = window.location.pathname.split("?").pop();
 
-            fetch('http://localhost:8080/api/v1/real_estate/2')
-                .then(response => response.json())
-                .then(json => {
-                    document.getElementById("house_title").innerHTML = json.title;
-                    document.getElementById("house_address").innerHTML = json.address;
-                    document.getElementById("house_area").innerHTML = json.area;
-                    document.getElementById("house_price").innerHTML = json.price;
-                    document.getElementById("house_district").innerHTML = json.district;
-                    document.getElementById("house_floors").innerHTML = json.floors;
-                    document.getElementById("house_cnumber").innerHTML = json.contact_number;
-                    document.getElementById("house_cname").innerHTML = json.contact_name;
-                    document.getElementById("house_bedroom").innerHTML = json.features;
-                    document.getElementById("house_type").innerHTML = json.house_type;
-                    document.getElementById("house_description").innerHTML = json.description;
-                })
-        </script>
+        fetch('http://localhost:8080/api/v1/real_estate/2')
+            .then(response => response.json())
+            .then(json => {
+                document.getElementById("house_title").innerHTML = json.title;
+                document.getElementById("house_address").innerHTML = json.address;
+                document.getElementById("house_area").innerHTML = json.area;
+                document.getElementById("house_price").innerHTML = json.price;
+                document.getElementById("house_district").innerHTML = json.district;
+                document.getElementById("house_floors").innerHTML = json.floors;
+                document.getElementById("house_cnumber").innerHTML = json.contact_number;
+                document.getElementById("house_cname").innerHTML = json.contact_name;
+                document.getElementById("house_bedroom").innerHTML = json.features;
+                document.getElementById("house_type").innerHTML = json.house_type;
+                document.getElementById("house_description").innerHTML = json.description;
+            })
+    </script>
 </head>
 
 <body>
@@ -102,33 +102,33 @@
 </div>
 </body>
 <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
 
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
 
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
         }
-    </script>
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+</script>
 </html>

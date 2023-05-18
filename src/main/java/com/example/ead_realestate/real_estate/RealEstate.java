@@ -26,10 +26,11 @@ public class RealEstate {
     private String features;
     private Integer contact_number;
     private String contact_name;
+    private String house_type;
     @Transient
     private String image;
 
-    public RealEstate(Integer id, String address, Integer area, Integer price, String title, Integer district, Integer floors, String features, Integer contact_number, String contact_name) {
+    public RealEstate(Integer id, String address, Integer area, Integer price, String title, Integer district, Integer floors, String features, Integer contact_number, String contact_name, String house_type) {
         this.id = id;
         this.title = title;
         this.address = address;
@@ -40,10 +41,11 @@ public class RealEstate {
         this.features = features;
         this.contact_number = contact_number;
         this.contact_name = contact_name;
+        this.house_type = house_type;
         this.image = "image_" + id; //implement auto generate image path
     }
 
-    public RealEstate(String address, Integer area, Integer price, String title, Integer district, Integer floors, String features, Integer contact_number, String contact_name) {
+    public RealEstate(String address, Integer area, Integer price, String title, Integer district, Integer floors, String features, Integer contact_number, String contact_name, String house_type) {
         this.title = title;
         this.address = address;
         this.area = area;
@@ -53,6 +55,7 @@ public class RealEstate {
         this.features = features;
         this.contact_number = contact_number;
         this.contact_name = contact_name;
+        this.house_type = house_type;
     }
 
     public RealEstate() {}
@@ -137,6 +140,10 @@ public class RealEstate {
         this.contact_name = contact_name;
     }
 
+    public String getHouse_type() { return house_type; }
+
+    public void setHouse_type(String house_type) { this.house_type = house_type; }
+
     public String getImage() {
         return image;
     }
@@ -158,6 +165,7 @@ public class RealEstate {
                 ", features='" + features + '\'' +
                 ", contact_number=" + contact_number +
                 ", contact_name='" + contact_name + '\'' +
+                ", house_type='" + house_type + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }
