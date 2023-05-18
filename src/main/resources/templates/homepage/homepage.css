@@ -8,6 +8,10 @@ html {
     padding-bottom: 60px;
 }
 
+header{
+    background: white;
+}
+
 footer {
     position: relative;
     transform: translatY(-100%);
