@@ -21,6 +21,11 @@ public class RealEstateController {
         return realEstateService.getRealEstate();
     }
 
+    @GetMapping(path = "{realEstateId}")
+    public RealEstate getARealEstate(@PathVariable String realEstateId) {
+        return realEstateService.getARealEstate(Integer.parseInt(realEstateId));
+    }
+
     @PostMapping
     public void registerNewRealEstate(@RequestBody RealEstate realEstate) {
         realEstateService.addNewRealEstate(realEstate);

@@ -82,8 +82,20 @@ public class RealEstateService {
             realEstateCheck.get().setContact_name(realEstate.getContact_name());
         }
 
+        if(realEstateCheck.get().getHouse_type() != null && realEstateCheck.get().getHouse_type().length() > 0 && !Objects.equals(realEstate.getHouse_type(), realEstateCheck.get().getHouse_type())){
+            realEstateCheck.get().setHouse_type(realEstate.getHouse_type());
+        }
+
         if(realEstateCheck.get().getImage() != null && realEstateCheck.get().getImage().length() > 0 && !Objects.equals(realEstate.getImage(), realEstateCheck.get().getImage())){
             realEstateCheck.get().setImage(realEstate.getImage());
         }
+    }
+
+    public RealEstate getARealEstate(Integer realEstateId) {
+        Optional<RealEstate> realEstateOptional = realEstateRepository.findById(realEstateId);
+        if (realEstateOptional.isEmpty()) {
+            throw new IllegalStateException("real estate with id " + realEstateId + " does not exists");
+        }
+        return realEstateOptional.get();
     }
 }
