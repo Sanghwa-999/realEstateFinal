@@ -45,7 +45,21 @@ public class RealEstate {
         this.image = "image_" + id; //implement auto generate image path
     }
 
-    public RealEstate(String address, Integer area, Integer price, String title, Integer district, Integer floors, String features, Integer contact_number, String contact_name, String house_type) {
+    public RealEstate(Integer id, String title, String address, Integer area, Integer price, Integer district, Integer floors, String features, Integer contact_number, String contact_name, String house_type) {
+        this.id = id;
+        this.title = title;
+        this.address = address;
+        this.area = area;
+        this.price = price;
+        this.district = district;
+        this.floors = floors;
+        this.features = features;
+        this.contact_number = contact_number;
+        this.contact_name = contact_name;
+        this.house_type = house_type;
+    }
+
+    public RealEstate(String title, String address, Integer area, Integer price, Integer district, Integer floors, String features, Integer contact_number, String contact_name, String house_type) {
         this.title = title;
         this.address = address;
         this.area = area;

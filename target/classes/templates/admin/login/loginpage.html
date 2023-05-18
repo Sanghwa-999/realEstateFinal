@@ -44,20 +44,19 @@
             }
         }
 
-        function validate(){
+        function validate() {
+            var username = document.getElementById("Username").value;
+            var password = document.getElementById("Password").value;
 
-        var username = document.getElementById("Username").value;
-        var password = document.getElementById("Password").value;
+            if (username == "admin" && password == "123456") {
+                alert("Login successfully");
+                window.location.href = "../list/adminList.html"; // Redirect to adminList.html
+                return false;
+            } else {
+                alert("Login Failed");
+            }
+        }
 
-        if(username == "admin" && password == "123456")
-        {
-            alert("Login succesfully");
-            return false;
-        }
-        else{
-            alert("Login Failed");
-        }
-        }
     </script>
 
 
