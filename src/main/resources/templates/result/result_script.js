@@ -127,19 +127,19 @@ if (areaSize) {
         const div = document.createElement('div');
       div.className = 'col';
       div.innerHTML = `
-          <div class="card shadow-sm" data-item-id="${item.id}">
-            <img src="${item.image}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-            <div class="card-body">
-              <p class="card-text">${item.title}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <small>District: ${item.district}</small>
-                </div>
-                <small class="text-body-secondary">Price: ${item.price}</small>
+        <div class="card shadow-sm" data-item-id="${item.id}">
+          <img src="../images/${item.id}/${item.id}_1.jpeg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+          <div class="card-body">
+            <p class="card-text">${item.title}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <small>District: ${item.district}</small>
               </div>
+              <small class="text-body-secondary">Price: ${item.price}</small>
             </div>
           </div>
-        `;
+        </div>
+      `;
       container.appendChild(div);
       });
 
@@ -159,20 +159,21 @@ if (areaSize) {
         const div = document.createElement('div');
       div.className = 'col';
       div.innerHTML = `
-          <div class="card shadow-sm" data-item-id="${item.id}">
-            <img src="${item.image}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-            <div class="card-body">
-              <p class="card-text">${item.title}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <small>District: ${item.district}</small>
-                </div>
-                <small class="text-body-secondary">Price: ${item.price}</small>
+        <div class="card shadow-sm" data-item-id="${item.id}">
+          <img src="../images/${item.id}/${item.id}_1.jpeg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+          <div class="card-body">
+            <p class="card-text">${item.title}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <small>District: ${item.district}</small>
               </div>
+              <small class="text-body-secondary">Price: ${item.price}</small>
             </div>
           </div>
-        `;
+        </div>
+      `;
       container.appendChild(div);
+
     });
 
     // Add click event to each item
