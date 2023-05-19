@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
-        <title>SHKJM admin</title>
+        <title>SHKJM Admin</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style_admin.css">
@@ -21,7 +21,6 @@
                     document.getElementById("input_cname").innerHTML += "<input id=\"new_cname\" placeholder=\""+ json.contact_name + "\">";
                     document.getElementById("input_bedroom").innerHTML += "<input id=\"new_bedroom\" placeholder=\""+ json.features + "\">";
                     document.getElementById("input_type").innerHTML += "<input id=\"new_type\" placeholder=\""+ json.type + "\">";
-                    document.getElementById("input_description").innerHTML += "<input id=\"new_description\" placeholder=\""+ json.description + "\">";
                 })
 
             function checkNull(ele_id){
@@ -31,6 +30,7 @@
             }
 
             function saveData() {
+                const id = 2;
                 const new_title = checkNull("new_title")
                 const new_address = checkNull("new_address")
                 const new_area = checkNull("new_area")
@@ -41,9 +41,8 @@
                 const new_cname = checkNull("new_cname")
                 const new_bedroom = checkNull("new_bedroom")
                 const new_type = checkNull("new_type")
-                const new_description = checkNull("new_description")
 
-                let url = "http://localhost:8080/api/v1/real_estate/2"
+                let url = "http://localhost:8080/api/v1/real_estate/" + id + "?"
 
                 const data = {
                     title: new_title,
@@ -56,7 +55,14 @@
                     contact_name: new_cname,
                     features: new_bedroom,
                     house_type: new_type,
-                    description: new_description
+                }
+
+                console.log(data)
+
+                for (const key in data) {
+                    if (data[key] !== undefined) {
+                        url += key + "=" + data[key] + "&"
+                    }
                 }
 
                 fetch(url, {
@@ -66,37 +72,36 @@
                     },
                     body: JSON.stringify(data)
                 })
-                    .then(response => {
-                        if(!response.ok){
-                            console.log('Problem');
-                        }
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log(json)
+                        alert("Edit successfully!")
+                        window.location.href("http://localhost:8080/admin")
                     })
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch(error => console.log(error));
             }
         </script>
     </head>
     <body>
         <div id="header_wrap"><h1>Edit information</h1></div>
         <div id="wrapper">
-            <div class="form_wrap">
-                <div id="input_title">House title: <br></div>
-                <div id="input_address">Address: <br></div>
-                <div id="input_area">Area: <br></div>
-                <div id="input_price">Price: <br></div>
-                <div id="input_district">District: <br></div>
-                <div id="input_floors">Floors: <br></div>
-                <div id="input_bedroom">Bedroom: <br></div>
-            </div>
-            <div class="form_wrap">
-                <div id="input_type">Type: <br></div>
-                <div id="input_cnumber">Contact number: <br></div>
-                <div id="input_cname">Contact name:<br> </div>
-                <div id="input_description">Description: <br></div>
-            </div>
+            <div id="wrap">
+                <div class="form_wrap">
+                    <div id="input_title">House title: <br></div>
+                    <div id="input_address">Address: <br></div>
+                    <div id="input_area">Area: <br></div>
+                    <div id="input_price">Price: <br></div>
+                    <div id="input_district">District: <br></div>
 
+                </div>
+                <div class="form_wrap">
+                    <div id="input_floors">Floors: <br></div>
+                    <div id="input_bedroom">Bedroom: <br></div>
+                    <div id="input_type">Type: <br></div>
+                    <div id="input_cnumber">Contact number: <br></div>
+                    <div id="input_cname">Contact name:<br> </div>
+                </div>
+
+            </div>
             <button onclick="saveData()">Submit</button>
         </div>
     </body>

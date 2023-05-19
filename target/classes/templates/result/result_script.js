@@ -1,3 +1,84 @@
+// const params = new URLSearchParams(window.location.search);
+// const houseType = params.get('houseType');
+// const region = params.get('region');
+// const areaSize = params.get('areaSize');
+// const homePrice = params.get('homePrice');
+
+// // Extract the numeric part from the region value
+// const regionNumber = region.match(/\d+/);
+// const district = regionNumber ? parseInt(regionNumber[0]) : null;
+
+// // Fetch data from the API
+// fetch('http://localhost:8080/api/v1/real_estate')
+//   .then(response => response.json())
+//   .then(data => {
+//     let filteredData = data;
+//     let smallestPrice, biggestPrice, averagePrice;
+
+//     if (region !== "Location in HCMC") {
+//       // Filter data based on the district
+//       filteredData = data.filter(item => item.district === district);
+
+//       // Calculate the smallest and biggest prices
+//       const prices = filteredData
+//         .map(item => item.price)
+//         .filter(price => typeof price === 'number' && !isNaN(price));
+
+//       const { sum, count } = prices.reduce(
+//         ({ sum, count }, currentValue) => {
+//           return {
+//             sum: sum + currentValue,
+//             count: count + 1
+//           };
+//         },
+//         { sum: 0, count: 0 }
+//       );
+
+//       averagePrice = Math.ceil(sum / count);
+//       smallestPrice = Math.min(...prices);
+//       biggestPrice = Math.max(...prices);
+//     } else {
+//       // Calculate the total smallest and biggest prices
+//       const prices = data
+//         .map(item => item.price)
+//         .filter(price => typeof price === 'number' && !isNaN(price));
+
+//       const { sum, count } = prices.reduce(
+//         ({ sum, count }, currentValue) => {
+//           return {
+//             sum: sum + currentValue,
+//             count: count + 1
+//           };
+//         },
+//         { sum: 0, count: 0 }
+//       );
+
+//       averagePrice = Math.ceil(sum / count);
+//       smallestPrice = Math.min(...prices);
+//       biggestPrice = Math.max(...prices);
+//     }
+
+//     // Update the HTML elements
+//     document.getElementById('smallestPrice').textContent = smallestPrice;
+//     document.getElementById('biggestPrice').textContent = biggestPrice;
+//     document.getElementById('averagePrice').textContent = averagePrice;
+//     document.getElementById('customRange1').min = smallestPrice;
+//     document.getElementById('customRange1').max = biggestPrice;
+
+//     const slider = document.getElementById("customRange1");
+//     slider.min = smallestPrice;
+//     slider.max = biggestPrice;
+//     slider.value = averagePrice;
+//     slider.disabled = true;
+
+
+
+//   })
+//   .catch(error => {
+//     console.error('Error:', error);
+//   });
+
+
 const params = new URLSearchParams(window.location.search);
 const houseType = params.get('houseType');
 const region = params.get('region');
@@ -15,7 +96,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
     let filteredData = data;
     let smallestPrice, biggestPrice, averagePrice;
 
-    if (region !== "Location in HCMC") {
+    if (houseType !== "Type of Accommodation" || region !== "Location in HCMC" || areaSize !== "House Area") {
       // Filter data based on the district
       filteredData = data.filter(item => item.district === district);
 
@@ -71,12 +152,13 @@ fetch('http://localhost:8080/api/v1/real_estate')
     slider.value = averagePrice;
     slider.disabled = true;
 
-
+    // Rest of the code...
 
   })
   .catch(error => {
     console.error('Error:', error);
   });
+
 
   // Define the area size ranges
   const areaSizeRanges = {
