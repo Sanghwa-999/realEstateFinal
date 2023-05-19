@@ -1,3 +1,6 @@
+
+
+
 const params = new URLSearchParams(window.location.search);
 const houseType = params.get('houseType');
 const region = params.get('region');
@@ -15,7 +18,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
     let filteredData = data;
     let smallestPrice, biggestPrice, averagePrice;
 
-    if (region !== "Location in HCMC") {
+    if (houseType !== "Type of Accommodation" || region !== "Location in HCMC" || areaSize !== "House Area") {
       // Filter data based on the district
       filteredData = data.filter(item => item.district === district);
 
@@ -71,12 +74,15 @@ fetch('http://localhost:8080/api/v1/real_estate')
     slider.value = averagePrice;
     slider.disabled = true;
 
+    
 
+    // Rest of the code...
 
   })
   .catch(error => {
     console.error('Error:', error);
   });
+
 
   // Define the area size ranges
   const areaSizeRanges = {
@@ -100,7 +106,9 @@ if (areaSize) {
   }
 }
 
-fetch('http://localhost:8080/api/v1/real_estate')
+
+
+  fetch('http://localhost:8080/api/v1/real_estate')
   .then(response => response.json())
   .then(data => {
     const container = document.querySelector('.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3');
@@ -109,9 +117,46 @@ fetch('http://localhost:8080/api/v1/real_estate')
     container.innerHTML = '';
 
     let count = 0;
-    const maxItems = data.filter(item => item.district === district && (!areaSizeRange || (item.area > areaSizeRange[0] && item.area <= areaSizeRange[1]))).slice(0, 3);
-    maxItems.forEach(item => {
-      const div = document.createElement('div');
+    const filteredData = data.filter(item => item.district === district && (!areaSizeRange || (item.area > areaSizeRange[0] && item.area <= areaSizeRange[1])));
+    
+    // Check if there are any filtered items
+    if (filteredData.length === 0) {
+      // Show items with item.id equal to 1 to 3
+      const maxItems = data.filter(item => item.id >= 1 && item.id <= 3);
+      maxItems.forEach(item => {
+        const div = document.createElement('div');
+      div.className = 'col';
+      div.innerHTML = `
+          <div class="card shadow-sm" data-item-id="${item.id}">
+            <img src="${item.image}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+            <div class="card-body">
+              <p class="card-text">${item.title}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <small>District: ${item.district}</small>
+                </div>
+                <small class="text-body-secondary">Price: ${item.price}</small>
+              </div>
+            </div>
+          </div>
+        `;
+      container.appendChild(div);
+      });
+
+      // Add click event to each item
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const itemId = card.dataset.itemId;
+        // Redirect to detail.html with the item ID in the URL
+        window.location.href = `../detail/detail.html?id=${itemId}`;
+      });
+    });
+    } else {
+      // Show the filtered items
+      const maxItems = filteredData.slice(0, 3);
+      maxItems.forEach(item => {
+        const div = document.createElement('div');
       div.className = 'col';
       div.innerHTML = `
           <div class="card shadow-sm" data-item-id="${item.id}">
@@ -138,6 +183,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
         // Redirect to detail.html with the item ID in the URL
         window.location.href = `../detail/detail.html?id=${itemId}`;
       });
-    });
+      });
+    }
   })
   .catch(error => console.log(error));

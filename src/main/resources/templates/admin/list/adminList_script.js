@@ -152,5 +152,6 @@ function deleteItem(itemId, div) {
 
   // Remove the item from the DOM
   const container = document.querySelector('#datatable');
+  alert("delete successfully");
   container.removeChild(div);
 }
