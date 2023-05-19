@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="style.css">
     <script>
         // const id = window.location.pathname.split("?").pop();
+        const params = new URLSearchParams(window.location.search);
+        const estateId = params.get('id');
+        
 
-        fetch('http://localhost:8080/api/v1/real_estate/2')
+        fetch('http://localhost:8080/api/v1/real_estate/'+estateId)
             .then(response => response.json())
             .then(json => {
                 document.getElementById("house_title").innerHTML = json.title;
