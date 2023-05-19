@@ -13,11 +13,12 @@ fetch('http://localhost:8080/api/v1/real_estate')
         const div = document.createElement('div');
         div.id = 'item-' + item.id;
         div.className = 'row';
+
         const image = document.createElement('img');
-        image.src = item.image;
+        image.src = `../../images/${item.id}/${item.id}_1.jpeg`;
         image.alt = '';
         image.width = 300;
-        image.height = 'auto';
+        image.height = 100;
         image.className = 'col-3';
 
         const title = document.createElement('div');
@@ -86,10 +87,10 @@ function filterItemsByDistrict() {
           div.className = 'row'
 
           const image = document.createElement('img');
-          image.src = item.image;
+          image.src = `../../images/${item.id}/${item.id}_1.jpeg`;
           image.alt = '';
           image.width = 300;
-          image.height = 'auto';
+          image.height = 100;
           image.className = 'col-3';
 
           const title = document.createElement('span');
