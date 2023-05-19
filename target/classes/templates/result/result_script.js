@@ -1,11 +1,10 @@
-
-
-
 const params = new URLSearchParams(window.location.search);
 const houseType = params.get('houseType');
 const region = params.get('region');
 const areaSize = params.get('areaSize');
 const homePrice = params.get('homePrice');
+
+console.log(parseInt(homePrice));
 
 // Extract the numeric part from the region value
 const regionNumber = region.match(/\d+/);
@@ -64,7 +63,6 @@ fetch('http://localhost:8080/api/v1/real_estate')
     // Update the HTML elements
     document.getElementById('smallestPrice').textContent = smallestPrice;
     document.getElementById('biggestPrice').textContent = biggestPrice;
-    document.getElementById('averagePrice').textContent = averagePrice;
     document.getElementById('customRange1').min = smallestPrice;
     document.getElementById('customRange1').max = biggestPrice;
 
@@ -74,14 +72,48 @@ fetch('http://localhost:8080/api/v1/real_estate')
     slider.value = averagePrice;
     slider.disabled = true;
 
-    
+    const allRanges = document.querySelectorAll(".sliderContainer");
+    allRanges.forEach(wrap => {
+      const range = wrap.querySelector(".form-range");
+      const bubble1 = wrap.querySelector(".bubble1");
+      const bubble2 = wrap.querySelector(".bubble2");
 
-    // Rest of the code...
+      range.addEventListener("input", () => {
+        setBubble(range, bubble1);
+        setBubble2(range, bubble2);
+      });
+      setBubble(range, bubble1);
+      setBubble2(range, bubble2);
+    });
+
+    function setBubble(range, bubble) {
+      const val = range.value;
+      const min = range.min ? range.min : 0;
+      const max = range.max ? range.max : 100;
+      const newVal = Number(((val - min) * 100) / (max - min));
+      bubble.innerHTML = '<div>average</div>' + val;
+
+      // Sorta magic numbers based on size of the native UI thumb
+      bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+    }
+
+    function setBubble2(range, bubble) {
+      const val = homePrice;
+      const min = range.min ? range.min : 0;
+      const max = range.max ? range.max : 100;
+      const newVal = Number(((val - min) * 100) / (max - min));
+      bubble.innerHTML = '<div>Input</div>' + val;
+
+      // Sorta magic numbers based on size of the native UI thumb
+      bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+    }
+
 
   })
   .catch(error => {
     console.error('Error:', error);
   });
+
 
 
   // Define the area size ranges

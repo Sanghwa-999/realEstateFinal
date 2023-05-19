@@ -1,11 +1,10 @@
-
-
-
 const params = new URLSearchParams(window.location.search);
 const houseType = params.get('houseType');
 const region = params.get('region');
 const areaSize = params.get('areaSize');
 const homePrice = params.get('homePrice');
+
+console.log(parseInt(homePrice));
 
 // Extract the numeric part from the region value
 const regionNumber = region.match(/\d+/);
