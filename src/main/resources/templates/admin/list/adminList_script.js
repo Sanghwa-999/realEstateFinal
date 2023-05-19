@@ -156,3 +156,11 @@ function deleteItem(itemId, div) {
   alert("delete successfully");
   container.removeChild(div);
 }
+
+
+const addButton = document.getElementById('addButton');
+
+addButton.addEventListener('click', () => {
+  // Redirect to admin_html
+  window.location.href = '../edit/admin_edit.html';
+});
