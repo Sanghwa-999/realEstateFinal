@@ -1,0 +1,7 @@
+{
+  "timestamp": "2023-05-18T11:42:29.264+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "Cannot parse null string",
+  "path": "/api/v1/real_estate/2"
+}

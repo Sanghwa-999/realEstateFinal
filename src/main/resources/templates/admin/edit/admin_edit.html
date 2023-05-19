@@ -5,32 +5,104 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style_admin.css">
+        <script>
+            // const id = window.location.pathname.split("?").pop();
+
+            fetch('http://localhost:8080/api/v1/real_estate/2')
+                .then(response => response.json())
+                .then(json => {
+                    document.getElementById("input_title").innerHTML += "<input id=\"new_title\" placeholder=\""+ json.title + "\">";
+                    document.getElementById("input_address").innerHTML += "<input id=\"new_address\" placeholder=\""+ json.address + "\">";
+                    document.getElementById("input_area").innerHTML += "<input id=\"new_area\" placeholder=\""+ json.area + "\">";
+                    document.getElementById("input_price").innerHTML += "<input id=\"new_price\" placeholder=\""+ json.price + "\">";
+                    document.getElementById("input_district").innerHTML += "<input id=\"new_district\" placeholder=\""+ json.district + "\">";
+                    document.getElementById("input_floors").innerHTML += "<input id=\"new_floors\" placeholder=\""+ json.floors + "\">";
+                    document.getElementById("input_cnumber").innerHTML += "<input id=\"new_cnumber\" placeholder=\""+ json.contact_number + "\">";
+                    document.getElementById("input_cname").innerHTML += "<input id=\"new_cname\" placeholder=\""+ json.contact_name + "\">";
+                    document.getElementById("input_bedroom").innerHTML += "<input id=\"new_bedroom\" placeholder=\""+ json.features + "\">";
+                    document.getElementById("input_type").innerHTML += "<input id=\"new_type\" placeholder=\""+ json.type + "\">";
+                })
+
+            function checkNull(ele_id){
+                if(document.getElementById(ele_id).value !== "") {
+                    return document.getElementById(ele_id).value;
+                }
+            }
+
+            function saveData() {
+                const id = 2;
+                const new_title = checkNull("new_title")
+                const new_address = checkNull("new_address")
+                const new_area = checkNull("new_area")
+                const new_price = checkNull("new_price")
+                const new_district = checkNull("new_district")
+                const new_floors = checkNull("new_floors")
+                const new_cnumber = checkNull("new_cnumber")
+                const new_cname = checkNull("new_cname")
+                const new_bedroom = checkNull("new_bedroom")
+                const new_type = checkNull("new_type")
+
+                let url = "http://localhost:8080/api/v1/real_estate/" + id + "?"
+
+                const data = {
+                    title: new_title,
+                    address: new_address,
+                    area: new_area,
+                    price: new_price,
+                    district: new_district,
+                    floors: new_floors,
+                    contact_number: new_cnumber,
+                    contact_name: new_cname,
+                    features: new_bedroom,
+                    house_type: new_type,
+                }
+
+                console.log(data)
+
+                for (const key in data) {
+                    if (data[key] !== undefined) {
+                        url += key + "=" + data[key] + "&"
+                    }
+                }
+
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log(json)
+                        alert("Edit successfully!")
+                        window.location.href("http://localhost:8080/admin")
+                    })
+            }
+        </script>
     </head>
     <body>
         <div id="header_wrap"><h1>Edit information</h1></div>
         <div id="wrapper">
-            <div id="form_wrap">
-                    <p>House title:</p><input type="text">
-                    <br>
-                    <p>Adress:</p><input type="text">
-                    <br>
-                    <p>Features:</p><input type="text">
-                    <br>
-                    <p>Area:</p><input type="text">
-                    <br>
-                    <p>Price:</p><input type="text">
-                    <br>
-                    <p>Picture 1:</p><input type="text">
-                    <br>
-                    <p>Picture 2:</p><input type="text">
-                    <br>
-                    <button>Submit</button>
+            <div id="wrap">
+                <div class="form_wrap">
+                    <div id="input_title">House title: <br></div>
+                    <div id="input_address">Address: <br></div>
+                    <div id="input_area">Area: <br></div>
+                    <div id="input_price">Price: <br></div>
+                    <div id="input_district">District: <br></div>
+
+                </div>
+                <div class="form_wrap">
+                    <div id="input_floors">Floors: <br></div>
+                    <div id="input_bedroom">Bedroom: <br></div>
+                    <div id="input_type">Type: <br></div>
+                    <div id="input_cnumber">Contact number: <br></div>
+                    <div id="input_cname">Contact name:<br> </div>
+                </div>
+
             </div>
-            
+            <button onclick="saveData()">Submit</button>
         </div>
     </body>
-
-    <script>
-        // To get images from the database
-    </script>
 </html>

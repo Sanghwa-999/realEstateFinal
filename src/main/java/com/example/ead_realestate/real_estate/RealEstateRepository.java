@@ -11,4 +11,7 @@ public interface RealEstateRepository extends JpaRepository<RealEstate, Integer>
 
     @Query("SELECT r FROM RealEstate r WHERE r.address = ?1")
     Optional<RealEstate> findRealEstateByAddress(String address);
+
+    @Query("SELECT r FROM RealEstate r WHERE r.title = ?1")
+    Optional<RealEstate> findRealEstateByTitle(String title);
 }

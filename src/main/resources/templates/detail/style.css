@@ -28,7 +28,7 @@ button{
     cursor: pointer;
 }
 
-#wrapper{
+#wrap{
     position: absolute;
     display: flex;
     flex-direction: column;

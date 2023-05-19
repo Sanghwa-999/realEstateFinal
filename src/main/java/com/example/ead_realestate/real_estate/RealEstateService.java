@@ -39,55 +39,56 @@ public class RealEstateService {
     }
 
     @Transactional
-    public void updateStudent(RealEstate realEstate){
-        Optional<RealEstate> realEstateCheck = realEstateRepository.findById(realEstate.getId());
+    public void updateRealEstate(Integer realEstateId, String title, String address, Integer district, Integer area, Integer price, Integer floors, String features, Integer contact_number, String contact_name, String house_type){
+        RealEstate realEstate = realEstateRepository.findById(realEstateId)
+                .orElseThrow(() -> new IllegalStateException("real estate with id " + realEstateId + " does not exists"));
 
-        if(realEstateCheck.isEmpty()) {
-            throw new IllegalStateException("real estate with id " + realEstate.getId() + " does not exists");
+        if(title != null && title.length() > 0 && !Objects.equals(realEstate.getTitle(), title)){
+            Optional<RealEstate> realEstateOptional = realEstateRepository.findRealEstateByTitle(title);
+            if (realEstateOptional.isPresent()) {
+                throw new IllegalStateException("title taken");
+            }
+            realEstate.setTitle(title);
         }
 
-        if(realEstateCheck.get().getTitle() != null && realEstateCheck.get().getTitle().length() > 0 && !Objects.equals(realEstate.getTitle(), realEstateCheck.get().getTitle())){
-            realEstateCheck.get().setTitle(realEstate.getTitle());
+        if(address != null && address.length() > 0 && !Objects.equals(realEstate.getAddress(), address)){
+            Optional<RealEstate> realEstateOptional = realEstateRepository.findRealEstateByAddress(address);
+            if (realEstateOptional.isPresent()) {
+                throw new IllegalStateException("address taken");
+            }
+            realEstate.setAddress(address);
         }
 
-        if(realEstateCheck.get().getAddress() != null && realEstateCheck.get().getAddress().length() > 0 && !Objects.equals(realEstate.getAddress(), realEstateCheck.get().getAddress())){
-            realEstateCheck.get().setAddress(realEstate.getAddress());
+        if(district != null && !Objects.equals(realEstate.getDistrict(), district)){
+            realEstate.setDistrict(district);
         }
 
-        if(realEstateCheck.get().getArea() != null && !Objects.equals(realEstate.getArea(), realEstateCheck.get().getArea())){
-            realEstateCheck.get().setArea(realEstate.getArea());
+        if(area != null && !Objects.equals(realEstate.getArea(), area)){
+            realEstate.setArea(area);
         }
 
-        if(realEstateCheck.get().getPrice() != null && !Objects.equals(realEstate.getPrice(), realEstateCheck.get().getPrice())){
-            realEstateCheck.get().setPrice(realEstate.getPrice());
+        if(price != null && !Objects.equals(realEstate.getPrice(), price)){
+            realEstate.setPrice(price);
         }
 
-        if(realEstateCheck.get().getDistrict() != null && !Objects.equals(realEstate.getDistrict(), realEstateCheck.get().getDistrict())){
-            realEstateCheck.get().setDistrict(realEstate.getDistrict());
+        if(floors != null && !Objects.equals(realEstate.getFloors(), floors)){
+            realEstate.setFloors(floors);
         }
 
-        if(realEstateCheck.get().getFloors() != null && !Objects.equals(realEstate.getFloors(), realEstateCheck.get().getFloors())){
-            realEstateCheck.get().setFloors(realEstate.getFloors());
+        if(features != null && features.length() > 0 && !Objects.equals(realEstate.getFeatures(), features)){
+            realEstate.setFeatures(features);
         }
 
-        if(realEstateCheck.get().getFeatures() != null && realEstateCheck.get().getFeatures().length() > 0 && !Objects.equals(realEstate.getFeatures(), realEstateCheck.get().getFeatures())){
-            realEstateCheck.get().setFeatures(realEstate.getFeatures());
+        if(contact_number != null && !Objects.equals(realEstate.getContact_number(), contact_number)){
+            realEstate.setContact_number(contact_number);
         }
 
-        if(realEstateCheck.get().getContact_number() != null && !Objects.equals(realEstate.getContact_number(), realEstateCheck.get().getContact_number())){
-            realEstateCheck.get().setContact_number(realEstate.getContact_number());
+        if(contact_name != null && contact_name.length() > 0 && !Objects.equals(realEstate.getContact_name(), contact_name)){
+            realEstate.setContact_name(contact_name);
         }
 
-        if(realEstateCheck.get().getContact_name() != null && realEstateCheck.get().getContact_name().length() > 0 && !Objects.equals(realEstate.getContact_name(), realEstateCheck.get().getContact_name())){
-            realEstateCheck.get().setContact_name(realEstate.getContact_name());
-        }
-
-        if(realEstateCheck.get().getHouse_type() != null && realEstateCheck.get().getHouse_type().length() > 0 && !Objects.equals(realEstate.getHouse_type(), realEstateCheck.get().getHouse_type())){
-            realEstateCheck.get().setHouse_type(realEstate.getHouse_type());
-        }
-
-        if(realEstateCheck.get().getImage() != null && realEstateCheck.get().getImage().length() > 0 && !Objects.equals(realEstate.getImage(), realEstateCheck.get().getImage())){
-            realEstateCheck.get().setImage(realEstate.getImage());
+        if(house_type != null && house_type.length() > 0 && !Objects.equals(realEstate.getHouse_type(), house_type)){
+            realEstate.setHouse_type(house_type);
         }
     }
 
