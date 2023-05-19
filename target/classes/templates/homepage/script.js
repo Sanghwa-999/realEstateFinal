@@ -78,3 +78,9 @@ function search() {
 
 
 
+function goToAdminLogin() {
+    // Redirect to loginpage.html
+    window.location.href = '../admin/login/loginpage.html';
+  }
+  
+
