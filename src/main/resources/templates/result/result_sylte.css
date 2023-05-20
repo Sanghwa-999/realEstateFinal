@@ -9,16 +9,18 @@
     margin-left: 10px;
 }
 
-#minmax{
+#min, #max{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
     font-size: 20px;
     font-weight:bold;
 }
 
-
+#biggestPrice, #smallestPrice{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
 
 html, body {
     height: 100%;
@@ -38,6 +40,7 @@ footer {
 .sliderContainer {
     position: relative;
     margin: 0 auto 3rem;
+    margin-top: 50px;
 }
 
 .form-range {
@@ -73,7 +76,7 @@ footer {
     position: absolute;
     border-radius: 4px;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -150%);
     text-align: center; 
 }
 
@@ -85,4 +88,20 @@ footer {
     background: red;
     bottom: -1px;
     left: 50%;
+}
+
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#min,
+#smallestPrice,
+#max,
+#biggestPrice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

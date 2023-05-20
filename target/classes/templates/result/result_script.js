@@ -91,22 +91,27 @@ fetch('http://localhost:8080/api/v1/real_estate')
       const min = range.min ? range.min : 0;
       const max = range.max ? range.max : 100;
       const newVal = Number(((val - min) * 100) / (max - min));
-      bubble.innerHTML = '<div>average</div>' + val;
+      bubble.innerHTML = '<div>Average</div>' + val;
 
       // Sorta magic numbers based on size of the native UI thumb
       bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
     }
 
     function setBubble2(range, bubble) {
-      const val = homePrice;
-      const min = range.min ? range.min : 0;
-      const max = range.max ? range.max : 100;
-      const newVal = Number(((val - min) * 100) / (max - min));
-      bubble.innerHTML = '<div>Input</div>' + val;
-
-      // Sorta magic numbers based on size of the native UI thumb
-      bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+      const val = parseFloat(homePrice);
+      const min = range.min ? parseFloat(range.min) : 0;
+      const max = range.max ? parseFloat(range.max) : 100;
+      
+      if (!isNaN(val) && val >= min && val <= max) {
+        const newVal = Number(((val - min) * 100) / (max - min));
+        bubble.innerHTML = '<div>Input</div>' + val;
+        bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+        bubble.style.display = 'block'; // Show the bubble
+      } else {
+        bubble.style.display = 'none'; // Hide the bubble
+      }
     }
+    
 
 
   })
