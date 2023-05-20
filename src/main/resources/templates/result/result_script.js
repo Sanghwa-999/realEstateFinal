@@ -98,10 +98,11 @@ fetch('http://localhost:8080/api/v1/real_estate')
     }
 
     function setBubble2(range, bubble) {
-      const val = homePrice;
-      const min = range.min ? range.min : 0;
-      const max = range.max ? range.max : 100;
-      if (val) {
+      const val = parseFloat(homePrice);
+      const min = range.min ? parseFloat(range.min) : 0;
+      const max = range.max ? parseFloat(range.max) : 100;
+      
+      if (!isNaN(val) && val >= min && val <= max) {
         const newVal = Number(((val - min) * 100) / (max - min));
         bubble.innerHTML = '<div>Input</div>' + val;
         bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
@@ -110,6 +111,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
         bubble.style.display = 'none'; // Hide the bubble
       }
     }
+    
 
 
   })
