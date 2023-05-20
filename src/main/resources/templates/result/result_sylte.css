@@ -9,16 +9,19 @@
     margin-left: 10px;
 }
 
-#minmax{
+#min, #max{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
     font-size: 20px;
     font-weight:bold;
 }
 
-
+#biggestPrice, #smallestPrice{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding-left: 7px;
+}
 
 html, body {
     height: 100%;
@@ -38,6 +41,7 @@ footer {
 .sliderContainer {
     position: relative;
     margin: 0 auto 3rem;
+    margin-top: 20px;
 }
 
 .form-range {
