@@ -4,8 +4,6 @@ const region = params.get('region');
 const areaSize = params.get('areaSize');
 const homePrice = params.get('homePrice');
 
-console.log(parseInt(homePrice));
-
 // Extract the numeric part from the region value
 const regionNumber = region.match(/\d+/);
 const district = regionNumber ? parseInt(regionNumber[0]) : null;
