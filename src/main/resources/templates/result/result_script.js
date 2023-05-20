@@ -10,6 +10,42 @@ console.log(parseInt(homePrice));
 const regionNumber = region.match(/\d+/);
 const district = regionNumber ? parseInt(regionNumber[0]) : null;
 
+// Define the area size ranges
+const areaSizeRanges = {
+  '1-50': [1, 50],
+  '50-150': [50, 150],
+  'over-150': [150, Infinity]
+};
+
+// Get the area size range based on the areaSize parameter in the URL
+let areaSizeRange = null;
+if (areaSize) {
+  for (let range in areaSizeRanges) {
+    const [min, max] = areaSizeRanges[range];
+    if (areaSize.includes(`${min}m² - ${max}m²`)) {
+      areaSizeRange = [min, max];
+      break;
+    } else if (areaSize === 'More than 150m²') {
+      areaSizeRange = areaSizeRanges['over-150'];
+      break;
+    }
+  }
+}
+
+// Define the house type ranges
+const houseTypeRanges = {
+  Apartment: 'Apartment',
+  Land: 'Land',
+  Villa: 'Villa',
+  House: 'House'
+};
+
+// Get the house type range based on the houseType parameter in the URL
+let houseTypeRange = null;
+if (houseType) {
+  houseTypeRange = houseTypeRanges[houseType];
+}
+
 // Fetch data from the API
 fetch('http://localhost:8080/api/v1/real_estate')
   .then(response => response.json())
@@ -19,7 +55,11 @@ fetch('http://localhost:8080/api/v1/real_estate')
 
     if (houseType !== "Type of Accommodation" || region !== "Location in HCMC" || areaSize !== "House Area") {
       // Filter data based on the district
-      filteredData = data.filter(item => item.district === district);
+      filteredData = data.filter(item => 
+        item.district === district &&
+        (!areaSizeRange || (item.area > areaSizeRange[0] && item.area <= areaSizeRange[1])) &&
+        (!houseTypeRange || item.house_type.toLowerCase() === houseTypeRange.toLowerCase())
+      );
 
       // Calculate the smallest and biggest prices
       const prices = filteredData
@@ -101,7 +141,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
       const val = parseFloat(homePrice);
       const min = range.min ? parseFloat(range.min) : 0;
       const max = range.max ? parseFloat(range.max) : 100;
-      
+
       if (!isNaN(val) && val >= min && val <= max) {
         const newVal = Number(((val - min) * 100) / (max - min));
         bubble.innerHTML = '<div>Input</div>' + val;
@@ -111,7 +151,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
         bubble.style.display = 'none'; // Hide the bubble
       }
     }
-    
+
 
 
   })
@@ -121,31 +161,9 @@ fetch('http://localhost:8080/api/v1/real_estate')
 
 
 
-  // Define the area size ranges
-  const areaSizeRanges = {
-    '1-50': [1, 50],
-    '50-150': [50, 150],
-    'over-150': [150, Infinity]
-  };
-  
-// Get the area size range based on the areaSize parameter in the URL
-let areaSizeRange = null;
-if (areaSize) {
-  for (let range in areaSizeRanges) {
-    const [min, max] = areaSizeRanges[range];
-    if (areaSize.includes(`${min}m² - ${max}m²`)) {
-      areaSizeRange = [min, max];
-      break;
-    } else if (areaSize === 'More than 150m²') {
-      areaSizeRange = areaSizeRanges['over-150'];
-      break;
-    }
-  }
-}
 
 
-
-  fetch('http://localhost:8080/api/v1/real_estate')
+fetch('http://localhost:8080/api/v1/real_estate')
   .then(response => response.json())
   .then(data => {
     const container = document.querySelector('.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3');
@@ -154,16 +172,20 @@ if (areaSize) {
     container.innerHTML = '';
 
     let count = 0;
-    const filteredData = data.filter(item => item.district === district && (!areaSizeRange || (item.area > areaSizeRange[0] && item.area <= areaSizeRange[1])));
-    
+    const filteredData = data.filter(item => 
+      item.district === district &&
+      (!areaSizeRange || (item.area > areaSizeRange[0] && item.area <= areaSizeRange[1])) &&
+      (!houseTypeRange || item.house_type.toLowerCase() === houseTypeRange.toLowerCase())
+    );
+
     // Check if there are any filtered items
     if (filteredData.length === 0) {
       // Show items with item.id equal to 1 to 3
       const maxItems = data.filter(item => item.id >= 1 && item.id <= 3);
       maxItems.forEach(item => {
         const div = document.createElement('div');
-      div.className = 'col';
-      div.innerHTML = `
+        div.className = 'col';
+        div.innerHTML = `
         <div class="card shadow-sm" data-item-id="${item.id}">
           <img src="../images/${item.id}/${item.id}_1.jpeg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
           <div class="card-body">
@@ -177,25 +199,25 @@ if (areaSize) {
           </div>
         </div>
       `;
-      container.appendChild(div);
+        container.appendChild(div);
       });
 
       // Add click event to each item
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        const itemId = card.dataset.itemId;
-        // Redirect to detail.html with the item ID in the URL
-        window.location.href = `../detail/detail.html?id=${itemId}`;
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const itemId = card.dataset.itemId;
+          // Redirect to detail.html with the item ID in the URL
+          window.location.href = `../detail/detail.html?id=${itemId}`;
+        });
       });
-    });
     } else {
       // Show the filtered items
       const maxItems = filteredData.slice(0, 3);
       maxItems.forEach(item => {
         const div = document.createElement('div');
-      div.className = 'col';
-      div.innerHTML = `
+        div.className = 'col';
+        div.innerHTML = `
         <div class="card shadow-sm" data-item-id="${item.id}">
           <img src="../images/${item.id}/${item.id}_1.jpeg" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
           <div class="card-body">
@@ -209,18 +231,18 @@ if (areaSize) {
           </div>
         </div>
       `;
-      container.appendChild(div);
+        container.appendChild(div);
 
-    });
-
-    // Add click event to each item
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        const itemId = card.dataset.itemId;
-        // Redirect to detail.html with the item ID in the URL
-        window.location.href = `../detail/detail.html?id=${itemId}`;
       });
+
+      // Add click event to each item
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const itemId = card.dataset.itemId;
+          // Redirect to detail.html with the item ID in the URL
+          window.location.href = `../detail/detail.html?id=${itemId}`;
+        });
       });
     }
   })

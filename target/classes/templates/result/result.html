@@ -41,25 +41,22 @@
         </div>
         <!-- input range and search button -->
         <div class="row">
-            <div class="col-1"></div>
+            <div class="col-1">
+                <span id="min">Min</span>
+                <span id="smallestPrice"></span>
+            </div>
             <div class="col-10">
                 <!-- https://getbootstrap.com/docs/5.3/forms/range/#disabled -->
-                <span id="minmax">
-                    <span>Min</span>
-                    <span>Max</span>
-                </span>
                 <div class="sliderContainer">
                     <input type="range" class="form-range" id="customRange1" name="foo">
                     <output class="bubble1"></output>
                     <output class="bubble2"></output>
                 </div>
-                 <span id="priceRange">
-                    <span id="smallestPrice"></span>
-                    <span id="averagePrice"></span>
-                    <span id="biggestPrice"></span>
-                </span>
             </div>
-            <div class="col-1"></div>
+            <div class="col-1">
+                <span id="max">Max</span>
+                <span id="biggestPrice"></span>
+            </div>
         </div>
         <!-- result reference houses list -->
         <div class="album py-5">
