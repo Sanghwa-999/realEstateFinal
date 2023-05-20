@@ -124,6 +124,48 @@ fetch('http://localhost:8080/api/v1/real_estate')
       setBubble2(range, bubble2);
     });
 
+    const text = document.getElementById('resultSentence');
+    text.textContent = null;
+    setResultSentence(parseInt(homePrice), parseInt(smallestPrice), parseInt(biggestPrice), parseInt(averagePrice), text);
+
+    // integer handling required
+    function setResultSentence(input, min, max, average, text) {
+        const minReasonable = average*0.8;
+        const maxReasonable = average*1.2;
+
+        console.log(minReasonable);
+        console.log(maxReasonable);
+
+        let finalText = '';
+        finalText += 'Given price is ' + Math.ceil(input) + ' millions. ';
+        finalText += 'Normally, reasonable price range is set with a 20% difference from the average value.';
+        finalText += ' And the reasonable price range for the selected options is from ';
+        finalText += Math.ceil(minReasonable) + ' millions to ' + Math.ceil(maxReasonable) + ' millions. ';
+
+        console.log(input);
+        if(!isNaN(input)) {
+            if(input <= min) {
+                finalText += 'The entered price is same or smaller than minimum price (Min: ' + Math.ceil(min) + ' millions)';
+            } else if(input > min && input < minReasonable) {
+                const difference = Math.ceil(Math.ceil(minReasonable-input)/input*100);
+                finalText += 'The entered price is cheaper than reasonable price. ';
+                finalText += 'The given price is ' + difference + '% smaller than reasonable price range.';
+            } else if(input >= minReasonable && input <= maxReasonable) {
+                finalText += 'The entered price is reasonable as it is within the range of reasonable price.';
+            } else if(input > maxReasonable && input < max) {
+                const difference = Math.ceil(Math.ceil(input-maxReasonable)/maxReasonable*100);
+                finalText += 'The entered price is  more expensive than reasonable price. ';
+                finalText += 'The given price is ' + difference + '% larger  than reasonable price range.';
+            } else if(input >= max) {
+                finalText += 'The entered price is same or bigger than maximum price (Max: ' + Math.ceil(max) + ' millions)';
+            }
+        } else {
+            console.log('input empty');
+            finalText = '';
+        }
+        text.textContent = finalText;
+    }
+
     function setBubble(range, bubble) {
       const val = range.value;
       const min = range.min ? range.min : 0;
@@ -149,7 +191,6 @@ fetch('http://localhost:8080/api/v1/real_estate')
         bubble.style.display = 'none'; // Hide the bubble
       }
     }
-
 
 
   })
