@@ -18,7 +18,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
         image.src = `../../images/${item.id}/${item.id}_1.jpeg`;
         image.alt = '';
         image.width = 300;
-        image.height = 100;
+        image.height = 170;
         image.className = 'col-3';
 
         const title = document.createElement('div');
@@ -36,6 +36,10 @@ fetch('http://localhost:8080/api/v1/real_estate')
         editButton.type = 'button';
         editButton.className = 'btn btn-success col-1 mx-1';
         editButton.textContent = 'Edit';
+        editButton.addEventListener('click', () => {
+          const itemId = item.id;
+          window.location.href = `../edit/admin_edit.html?id=${itemId}`;
+        });
 
         const deleteButton = document.createElement('button');
         deleteButton.type = 'button';
@@ -107,6 +111,10 @@ function filterItemsByDistrict() {
           editButton.type = 'button';
           editButton.className = 'btn btn-success col-1 mx-1';
           editButton.textContent = 'Edit';
+          editButton.addEventListener('click', () => {
+            const itemId = item.id;
+            window.location.href = `../edit/admin_edit.html?id=${itemId}`;
+          });
 
           const deleteButton = document.createElement('button');
           deleteButton.type = 'button';
@@ -164,3 +172,6 @@ addButton.addEventListener('click', () => {
   // Redirect to admin_html
   window.location.href = '../edit/admin_edit.html';
 });
+
+
+
