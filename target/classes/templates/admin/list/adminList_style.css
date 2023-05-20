@@ -38,4 +38,23 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px;
+}
+
+.col-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
