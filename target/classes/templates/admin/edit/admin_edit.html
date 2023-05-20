@@ -23,7 +23,6 @@
                     document.getElementById("input_cname").innerHTML += "<input id=\"new_cname\" placeholder=\""+ json.contact_name + "\">";
                     document.getElementById("input_bedroom").innerHTML += "<input id=\"new_bedroom\" placeholder=\""+ json.features + "\">";
                     document.getElementById("input_type").innerHTML += "<input id=\"new_type\" placeholder=\""+ json.type + "\">";
-                    document.getElementById("input_description").innerHTML += "<input id=\"new_description\" placeholder=\""+ json.description + "\">";
                 })
 
             function checkNull(ele_id){
@@ -44,7 +43,6 @@
                 const new_cname = checkNull("new_cname")
                 const new_bedroom = checkNull("new_bedroom")
                 const new_type = checkNull("new_type")
-                const new_description = checkNull("new_description")
 
                 let url = "http://localhost:8080/api/v1/real_estate/" + id + "?"
 
