@@ -60,6 +60,18 @@ form input{
     font-size: 16px;
 }
 
+.intro{
+    width: 1200px;
+    padding: 20px 20px;
+    margin: auto;
+    margin-top: 250px;
+    box-sizing: border-box;
+    background: rgba(189, 189, 189, 0.6);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
 form button{
     background: tomato;
     padding: 13px;
