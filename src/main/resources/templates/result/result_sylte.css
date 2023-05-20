@@ -73,7 +73,7 @@ footer {
     position: absolute;
     border-radius: 4px;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -150%);
     text-align: center; 
 }
 
