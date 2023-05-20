@@ -27,10 +27,7 @@
                 document.getElementById("house_cname").innerHTML = json.contact_name;
                 document.getElementById("house_bedroom").innerHTML = json.features;
                 document.getElementById("house_type").innerHTML = json.house_type;
-                document.getElementById("house_description").innerHTML = json.description;
             })
-
-
     </script>
 </head>
 <body>
@@ -52,13 +49,11 @@
                         <div class="mySlides">
                             <div class="numbertext">1 / 2</div>
                             <img alt="" class="img_reel" style="width:100%">
-                            <div class="text">Caption Text</div>
                         </div>
 
                         <div class="mySlides">
                             <div class="numbertext">2 / 2</div>
                             <img alt="" class="img_reel" style="width:100%">
-                            <div class="text">Caption Two</div>
                         </div>
 
                         <!-- Next and previous buttons -->
@@ -83,9 +78,9 @@
                     <table>
                         <tr>
                             <td style="font-weight: bold;">District</td>
-                            <td style="font-weight: bold;">Price</td>
-                            <td style="font-weight: bold;">Area</td>
-                            <td style="font-weight: bold;">Bedrooms</td>
+                            <td style="font-weight: bold;">Price (billion VND)</td>
+                            <td style="font-weight: bold;">Area (square feet)</td>
+                            <td style="font-weight: bold;">Feature</td>
                         </tr>
                         <tr>
                             <td id="house_district">[Input district]</td>
@@ -110,16 +105,6 @@
                         </tr>
                     </table>
                 </div>
-
-                <h2 style="font-size: 1.5em; margin: 30px;">Description</h2>
-                <p id="house_description">[Input description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                    nunc elit, cursus at euismod ullamcorper, ultricies suscipit tellus. Nam porta bibendum placerat. Nulla
-                    semper eleifend odio, a blandit ligula rhoncus eget. Nullam vel ligula et lacus suscipit feugiat. Aliquam
-                    sit amet accumsan ipsum. Pellentesque erat quam, ultrices quis libero eget, luctus fermentum risus.
-                    Pellentesque faucibus diam non risus mollis venenatis eget non orci. Aliquam erat volutpat. Mauris molestie
-                    lorem ut est commodo eleifend. Sed non ligula ut lorem auctor imperdiet. Duis at efficitur lorem, vitae
-                    vulputate nunc. Phasellus aliquet volutpat euismod. Pellentesque feugiat odio ut justo malesuada viverra.
-                    Donec ac odio at augue eleifend fringilla.]</p>
             </div>
         </div>
     </div>
