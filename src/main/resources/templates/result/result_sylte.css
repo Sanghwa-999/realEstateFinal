@@ -20,7 +20,6 @@
     display: flex;
     align-items: center;
     margin-top: 5px;
-    padding-left: 7px;
 }
 
 html, body {
@@ -89,4 +88,20 @@ footer {
     background: red;
     bottom: -1px;
     left: 50%;
+}
+
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#min,
+#smallestPrice,
+#max,
+#biggestPrice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
