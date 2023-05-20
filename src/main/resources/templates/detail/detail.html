@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="style.css">
     <script>
         // const id = window.location.pathname.split("?").pop();
+        const params = new URLSearchParams(window.location.search);
+        const estateId = params.get('id');
+        
 
-        fetch('http://localhost:8080/api/v1/real_estate/2')
+        fetch('http://localhost:8080/api/v1/real_estate/'+estateId)
             .then(response => response.json())
             .then(json => {
                 document.getElementById("house_title").innerHTML = json.title;
@@ -44,24 +47,17 @@
         <!-- Slideshow container -->
         <div id="intro_display"><h1 id="house_title" style="font-size: 2em; text-align: center">House Preview</h1>
             <div class="slideshow-container">
-
                 <!-- Full-width images with number and caption text -->
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img class="img_reel" src="https://file4.batdongsan.com.vn/2023/03/14/20230314170629-a80e_wm.jpg" style="width:100%" alt="">
+                <div class="mySlides">
+                    <div class="numbertext">1 / 2</div>
+                    <img class="img_reel" style="width:100%" alt="">
                     <div class="text">Caption Text</div>
                 </div>
 
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img class="img_reel" src="https://file4.batdongsan.com.vn/resize/1275x717/2021/04/19/20210419105005-d730_wm.jpg" style="width:100%" alt="">
+                <div class="mySlides">
+                    <div class="numbertext">2 / 2</div>
+                    <img class="img_reel" style="width:100%" alt="">
                     <div class="text">Caption Two</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img class="img_reel" src="https://file4.batdongsan.com.vn/resize/1275x717/2021/04/19/20210419105227-f78d_wm.jpg" style="width:100%" alt="">
-                    <div class="text">Caption Three</div>
                 </div>
 
                 <!-- Next and previous buttons -->
@@ -74,7 +70,6 @@
             <div style="text-align:center">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </div>
 
@@ -110,6 +105,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+        <script src="detail_script.js"></script>
 </body>
 <script>
     let slideIndex = 1;

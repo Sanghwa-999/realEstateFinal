@@ -5,11 +5,16 @@
     align-items: first baseline;
     border-radius: 10px;
 }
+#addButton{
+    width: 100px;
+}
 
 #districtSelect{
     width: 340px;
     position: relative;
     padding: 10px 10px 10px 30px;
+    margin: 10px 10px 10px 10px;
+
     cursor: pointer;
     list-style:none;
     box-sizing: border-box;
@@ -22,4 +27,34 @@
 #titles{
     font-size: 20px;
     font-weight:bold;
+}
+
+
+button{
+    height: 38px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.col-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
