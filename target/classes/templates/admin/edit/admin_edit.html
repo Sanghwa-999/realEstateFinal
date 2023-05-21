@@ -32,7 +32,6 @@
             }
 
             function saveData() {
-                const id = 2;
                 const new_title = checkNull("new_title")
                 const new_address = checkNull("new_address")
                 const new_area = checkNull("new_area")
@@ -44,7 +43,7 @@
                 const new_bedroom = checkNull("new_bedroom")
                 const new_type = checkNull("new_type")
 
-                let url = "http://localhost:8080/api/v1/real_estate/" + id + "?"
+                let url = "http://localhost:8080/api/v1/real_estate/" + estateId + "?"
 
                 const data = {
                     title: new_title,

@@ -48,6 +48,31 @@ form input{
     font-weight: 600;
     color: grey;
 }
+
+#adminButton{
+    width: 60px;
+    padding: 3px 0;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    background: transparent;
+    color: grey;
+    font-size: 16px;
+}
+
+.intro{
+    width: 1200px;
+    padding: 20px 20px;
+    margin: auto;
+    margin-top: 250px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 250px;
+}
+
 form button{
     background: tomato;
     padding: 13px;
