@@ -58,3 +58,28 @@ button{
     justify-content: center;
     align-items: center;
 }
+
+
+@media (max-width: 800px) {
+    .btn.btn-secondary {
+        margin-left: 10px;
+    }
+}
+
+
+@media (max-width: 770px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .btn.btn-success.col-1.mx-1{
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    .btn.btn-danger.col-1.mx-1{
+        width: 50%;
+        margin-top: 10px;
+    }
+}

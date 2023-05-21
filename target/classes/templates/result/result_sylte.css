@@ -20,11 +20,18 @@
     display: flex;
     align-items: center;
     margin-top: 5px;
-    padding-left: 7px;
 }
 
 html, body {
     height: 100%;
+    background: rgb(185, 183, 189);
+    height: 100%
+}
+
+header{
+
+ background: white;
+
 }
 
 #wrap {
@@ -41,7 +48,7 @@ footer {
 .sliderContainer {
     position: relative;
     margin: 0 auto 3rem;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .form-range {
@@ -89,4 +96,20 @@ footer {
     background: red;
     bottom: -1px;
     left: 50%;
+}
+
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#min,
+#smallestPrice,
+#max,
+#biggestPrice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
