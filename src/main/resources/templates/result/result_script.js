@@ -137,15 +137,15 @@ fetch('http://localhost:8080/api/v1/real_estate')
         console.log(maxReasonable);
 
         let finalText = '';
-        finalText += 'Given price is ' + Math.ceil(input) + ' millions. ';
+        finalText += 'Given price is ' + Math.ceil(input) + ' billions. ';
         finalText += 'Normally, reasonable price range is set with a 20% difference from the average value.';
         finalText += ' And the reasonable price range for the selected options is from ';
-        finalText += Math.ceil(minReasonable) + ' millions to ' + Math.ceil(maxReasonable) + ' millions. ';
+        finalText += Math.ceil(minReasonable) + ' billions to ' + Math.ceil(maxReasonable) + ' billions. ';
 
         console.log(input);
         if(!isNaN(input)) {
             if(input <= min) {
-                finalText += 'The entered price is same or smaller than minimum price (Min: ' + Math.ceil(min) + ' millions)';
+                finalText += 'The entered price is same or smaller than minimum price (Min: ' + Math.ceil(min) + ' billions)';
             } else if(input > min && input < minReasonable) {
                 const difference = Math.ceil(Math.ceil(minReasonable-input)/input*100);
                 finalText += 'The entered price is cheaper than reasonable price. ';
@@ -157,7 +157,7 @@ fetch('http://localhost:8080/api/v1/real_estate')
                 finalText += 'The entered price is  more expensive than reasonable price. ';
                 finalText += 'The given price is ' + difference + '% larger  than reasonable price range.';
             } else if(input >= max) {
-                finalText += 'The entered price is same or bigger than maximum price (Max: ' + Math.ceil(max) + ' millions)';
+                finalText += 'The entered price is same or bigger than maximum price (Max: ' + Math.ceil(max) + ' billions)';
             }
         } else {
             console.log('input empty');

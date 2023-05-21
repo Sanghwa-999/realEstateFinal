@@ -24,6 +24,14 @@
 
 html, body {
     height: 100%;
+    background: rgb(185, 183, 189);
+    height: 100%
+}
+
+header{
+
+ background: white;
+
 }
 
 #wrap {
