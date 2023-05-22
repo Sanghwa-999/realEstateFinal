@@ -91,10 +91,6 @@ function checkError(){
     return {hasError, error_str}
 }
 
-function checkString(variable){
-    return typeof variable === 'string';
-}
-
 function checkEmpty(variable){
     return variable === "";
 }
@@ -116,7 +112,7 @@ function checkType(string){
 }
 
 function checkNumber(variable){
-    return typeof variable === 'number';
+    return !isNaN(parseInt(variable));
 }
 
 function submitData() {
