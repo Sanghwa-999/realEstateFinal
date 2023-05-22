@@ -58,6 +58,7 @@ form input{
     background: transparent;
     color: grey;
     font-size: 16px;
+    margin: 10px;
 }
 
 .intro{
@@ -280,4 +281,19 @@ form .fa-money-bill{
     border-radius: 10px;
     background-color: rgb(203, 203, 203);
     margin: 20px;
+}
+
+
+@media (max-width: 800px) {
+    .option_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+    .intro {
+        display: none;
+    }
 }

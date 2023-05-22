@@ -1,3 +1,117 @@
+POST http://localhost:8080/api/v1/real_estate
+Content-Type: application/json
+Content-Length: 212
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Buy",
+  "area": 5,
+  "price": 11,
+  "district": 5,
+  "floors": 2,
+"features": "2 bed, 2 bath",
+"address": "123 Main St",
+"type": "house",
+"contact_number": "1234567890",
+"contact_name": "John Doe"
+}
+
+###
+
+POST http://localhost:8080/api/v1/real_estate
+Content-Type: application/json
+Content-Length: 212
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Buy",
+  "area": 5,
+  "price": 11,
+  "district": 5,
+  "floors": 2,
+"features": "2 bed, 2 bath",
+"address": "123 Main St",
+"type": "house",
+"contact_number": "1234567890",
+"contact_name": "John Doe"
+}
+
+<> 2023-05-22T054941.500.json
+
+###
+
+POST http://localhost:8080/api/v1/real_estate
+Content-Type: application/json
+Content-Length: 212
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "title": "Buy",
+  "area": 5,
+  "price": 11,
+  "district": 5,
+  "floors": 2,
+"features": "2 bed, 2 bath",
+"address": "123 Main St",
+"type": "house",
+"contact_number": "1234567890",
+"contact_name": "John Doe"
+}
+
+<> 2023-05-22T054811.500.json
+
+###
+
+POST http://localhost:8080/api/v1/real_estate
+{:
+  "title": "Buy",
+  "area": 5,
+  "price": 11,
+  "district": 5,
+  "floors": 2,
+"features": "2 bed, 2 bath",
+"address": "123 Main St",
+"type": "house",
+"contact_number": "1234567890",
+"contact_name": "John Doe"
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-22T054650.400.html
+
+###
+
+POST http://localhost:8080/api/v1/real_estate
+{:
+  "title": "Buy",
+  "area": 5,
+  "price": 11,
+  "district": 5,
+  "floors": 2,
+"features": "2 bed, 2 bath",
+"address": "123 Main St",
+"type": "house",
+"contact_number": "1234567890",
+"contact_name": "John Doe"
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-22T054631.400.html
+
+###
+
 PUT http://localhost:8080/api/v1/real_estate/2?title=Buy&area=5&price=11&district=5&floors=2
 Content-Length: 0
 Connection: Keep-Alive

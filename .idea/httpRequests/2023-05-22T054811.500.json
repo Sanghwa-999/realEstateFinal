@@ -1,0 +1,7 @@
+{
+  "timestamp": "2023-05-21T22:48:11.745+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "could not execute statement; SQL [n/a]; constraint [real_estate_id_key]",
+  "path": "/api/v1/real_estate"
+}

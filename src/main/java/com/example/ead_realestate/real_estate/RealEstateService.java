@@ -23,11 +23,14 @@ public class RealEstateService {
 
     public void addNewRealEstate(RealEstate realEstate) {
         Optional<RealEstate> realEstateOptional = realEstateRepository.findRealEstateByAddress(realEstate.getAddress());
+        Optional<RealEstate> realEstateOptional1 = realEstateRepository.findRealEstateByTitle(realEstate.getTitle());
         if (realEstateOptional.isPresent()) {
             throw new IllegalStateException("address taken");
         }
+        else if(realEstateOptional1.isPresent()){
+            throw new IllegalStateException("title taken");
+        }
         realEstateRepository.save(realEstate);
-
     }
 
     public void deleteRealEstate(Integer realEstateId) {

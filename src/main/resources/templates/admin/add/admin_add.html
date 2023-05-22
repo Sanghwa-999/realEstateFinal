@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>SHKJM Admin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="admin_add.css">
+  <script src="admin_add.js"></script>
+</head>
+<body>
+<div id="header_wrap"><h1>Add information</h1></div>
+  <div id="wrapper">
+    <div id="wrap">
+      <div class="form_wrap">
+        <div>House title: <br> <input type="text" id="new_title"></div>
+        <div>Address: <br> <input type="text" id="new_address"></div>
+        <div>Area: <br> <input type="text" id="new_area"></div>
+        <div>Price: <br> <input type="text" id="new_price"></div>
+        <div>District: <br> <input type="text" id="new_district"></div>
+      </div>
+
+      <div class="form_wrap">
+        <div>Floors: <br> <input type="text" id="new_floors"></div>
+        <div>Features: <br> <input type="text" id="new_features"></div>
+        <div>Type: <br> <input type="text" id="new_type"></div>
+        <div>Contact number: <br> <input type="text" id="new_cnumber"></div>
+        <div>Contact name:<br> <input type="text" id="new_cname"></div>
+      </div>
+
+      </div>
+      <div id="error" style="color: red; font-weight: bold; text-align: center;"></div>
+      <button onclick="submitData()">Submit</button>
+    </div>
+  </body>
+</html>
