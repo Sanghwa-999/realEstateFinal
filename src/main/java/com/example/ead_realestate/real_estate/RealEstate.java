@@ -6,15 +6,7 @@ import jakarta.persistence.*;
 @Table
 public class RealEstate {
     @Id
-    @SequenceGenerator(
-            name = "real_estate_sequence",
-            sequenceName = "real_estate_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String title;
