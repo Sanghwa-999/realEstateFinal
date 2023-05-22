@@ -1,14 +1,27 @@
 # EEET2580 - Enterprise Application Development - 2023 S1 Group project 
-* Group 3
+**Group 3**
 * Sanghwa Jung - s3768999
 * Jaeheon Jeong - s3821004
 * Vu Nguyet Minh - s3878520
 * Mai Xuan Huy - s3878672
 * Nguyen Gia Khanh - s3927238
 
-Domain for project: https://sanghwa-999.github.io/realEstateSHKJM/src/main/resources/templates/homepage/index.html
+**Contribution:**  
+Especially, our project had an issue on previous github so that this github repository do not contain the previous contribution.  
+We all agree with the following contributions:  
+20% - Sanghwa  
+20% - Jaehoen  
+20% - Minh  
+20% - Huy  
+20% - Khanh  
 
-To run the application: 
+**Github address**  
+https://github.com/Sanghwa-999/realEstateSHKJM.git
+
+**Domain for project:**  
+https://sanghwa-999.github.io/realEstateSHKJM/src/main/resources/templates/homepage/index.html
+
+**To run the application:** 
 1. Run the src/main/java/com/example/ead_realestate/EadDemoApplication.java to run springboot
 2. Access to the domain above
 
