@@ -13,7 +13,7 @@ fetch('http://localhost:8080/api/v1/real_estate/'+estateId)
         document.getElementById("input_cnumber").innerHTML += "<input id=\"new_cnumber\" placeholder=\""+ json.contact_number + "\">";
         document.getElementById("input_cname").innerHTML += "<input id=\"new_cname\" placeholder=\""+ json.contact_name + "\">";
         document.getElementById("input_features").innerHTML += "<input id=\"new_features\" placeholder=\""+ json.features + "\">";
-        document.getElementById("input_type").innerHTML += "<input id=\"new_type\" placeholder=\""+ json.type + "\">";
+        document.getElementById("input_type").innerHTML += "<input id=\"new_type\" placeholder=\""+ json.house_type + "\">";
     })
 
 function checkNull(ele_id){
